@@ -1,0 +1,37 @@
+
+SELECT `students`.`name`, `students`.`surname`,`degrees`.`name`
+FROM `students`
+INNER JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
+
+SELECT `degrees`.`name`, `departments`.`name` 
+FROM `degrees`
+INNER JOIN `departments`
+ON `degrees`.`department_id`=`departments`.`id`
+WHERE `departments`.`name` = 'Dipartimento di Neuroscienze';
+
+SELECT `course_teacher`.`teacher_id`, `courses`.`name` 
+FROM `course_teacher`
+INNER JOIN `courses`
+ON `course_teacher`.`course_id` = `courses`.`id`
+WHERE `course_teacher`.`teacher_id` = 44;
+
+SELECT students.surname, students.name, degrees.name, departments.name 
+FROM `students` 
+INNER JOIN degrees 
+ON students.degree_id = degrees.id 
+INNER JOIN departments 
+ON degrees.department_id = departments.id 
+ORDER by surname ASC, students.name ASC;
+
+SELECT courses.name AS Nome_Corso, 
+degrees.name AS Nome_Corso_Laurea, 
+teachers.name AS Nome_Professore 
+FROM `degrees` 
+INNER JOIN courses 
+ON courses.degree_id = degrees.id 
+INNER JOIN course_teacher 
+ON course_teacher.course_id = courses.id 
+INNER JOIN teachers 
+ON course_teacher.teacher_id = teachers.id;

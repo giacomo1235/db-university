@@ -1,0 +1,15 @@
+SELECT COUNT(id), YEAR(`enrolment_date`)
+FROM `students`
+GROUP BY YEAR(`enrolment_date`);
+
+SELECT COUNT(*), `office_address`
+FROM `teachers`
+GROUP BY `office_address`;
+
+SELECT `exam_id`, ROUND(AVG(`vote`), 2)
+FROM `exam_student`
+GROUP BY `exam_id`;
+
+SELECT `degree_id`, COUNT(id) 
+FROM `courses` 
+GROUP BY `degree_id`;
